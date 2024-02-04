@@ -62,4 +62,4 @@
 
  ## Links
  - **Documentation**: https://seattle-university.gitbook.io/sdgne/
- - **PyPI**: 
+ - **PyPI**: https://pypi.org/project/sdgne/
