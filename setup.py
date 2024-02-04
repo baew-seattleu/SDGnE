@@ -4,12 +4,12 @@ import os
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
+with codecs.open(os.path.join(here, "PYPI_README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.2.0'
+VERSION = '0.2.2'
 DESCRIPTION = 'Generates synthetic data'
-LONG_DESCRIPTION = 'Generates synthetic data'
+LONG_DESCRIPTION = long_description
 URL = "https://github.com/SartajBhuvaji"
 
 # Setting up
@@ -33,7 +33,7 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3.7, 3.8, 3.9, 3.10, 3.11",
+        "Programming Language :: Python :: 3.7",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
