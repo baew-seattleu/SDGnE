@@ -1,30 +1,5 @@
-<br />
-<div align="center">
- <a href="https://github.com/SartajBhuvaji/SDGnE">
-    <img src="img/logo.png" alt="logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">SDGnE</h3>
-  <h4 align="center">Synthetic Data Generation and Evaluation</h3><br >
-  
-  <p align="center">
-    Seattle University: Data Science Research
-    <br />
-    <br />
-    Guide    <br /> 
-    <a href="https://github.com/baew-seattleu">Dr. Wan Bae</a> <br /><br />
-    Students
-    <br /> 
-    <a href="https://github.com/SartajBhuvaji">Sartaj Bhuvaji</a><br>
-    <a href="https://github.com/Siddheshwari19">Siddheshwari Bankar</a> 
- 
-        SDGNE - Synthetic Data Generation and Evaluation
-  </p>
-</div>
 
   [![Build](https://github.com/SartajBhuvaji/SDGnE/actions/workflows/main.yaml/badge.svg)](https://github.com/SartajBhuvaji/SDGnE/actions/workflows/main.yaml)
-
-  ![PyPI](https://img.shields.io/pypi/v/sdgne?label=sdgne)
 
 
 ## About
@@ -62,4 +37,3 @@
 
  ## Links
  - **Documentation**: https://seattle-university.gitbook.io/sdgne/
- - **PyPI**: 
