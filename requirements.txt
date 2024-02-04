@@ -1,0 +1,11 @@
+keras
+tensorflow
+pandas
+numpy
+matplotlib
+gretel-client
+pytest
+pytest-cov
+seaborn
+scipy
+scikit-learn
