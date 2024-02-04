@@ -7,8 +7,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "PYPI_README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.2.2'
-DESCRIPTION = 'Generates synthetic data'
+VERSION = '1.0.0'
+DESCRIPTION = 'Synthetic Data Generation and Evaluation'
 LONG_DESCRIPTION = long_description
 URL = "https://github.com/SartajBhuvaji"
 
