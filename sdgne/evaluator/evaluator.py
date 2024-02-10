@@ -1,3 +1,5 @@
+#Author: Sartaj Bhuvaji
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -58,16 +60,23 @@ class Evaluation:
                               and standard deviation of synthetic minority data for each column.
             """
             output = {}
-            for column in self.original_minority_data.columns:
-                mean_df1 = self.original_minority_data[column].mean()
-                std_df1  = self.original_minority_data[column].std()
-                mean_df2 = self.synthetic_minority_data[column].mean()
-                std_df2  = self.synthetic_minority_data[column].std()
+            original_minority_data_cp = self.original_minority_data.copy()
+            synthetic_minority_data_cp = self.synthetic_minority_data.copy()
+
+            original_minority_data_cp.drop(columns=['synthetic_data', 'class'], inplace=True)
+            synthetic_minority_data_cp.drop(columns=['synthetic_data', 'class'], inplace=True)
+
+            for column in original_minority_data_cp.columns:
+                mean_df1 = original_minority_data_cp[column].mean()
+                std_df1  = original_minority_data_cp[column].std()
+                mean_df2 = synthetic_minority_data_cp[column].mean()
+                std_df2  = synthetic_minority_data_cp[column].std()
                 meandiff = abs(mean_df1 - mean_df2)
 
                 output[column] = {'Mean_diff': meandiff,
                                 'Mean_original_minority_data': mean_df1, 'Mean_synthetic_minority_data': mean_df2,
                                 'Std_original_minority_data' : std_df1,  'Std_synthetic_minority_data' : std_df2}
+                
             return pd.DataFrame(output).transpose().sort_values(by='Mean_diff', ascending=False)
 
 
@@ -91,7 +100,7 @@ class Evaluation:
         
         num_columns = len(df1.columns)
         num_rows = int(np.ceil(num_columns / 5))
-        fig, axes = plt.subplots(num_rows, 5, figsize=(20, 4 * num_rows))
+        fig, axes = plt.subplots(num_rows, 5, figsize=(15, 2 * num_rows))
 
         highlighted_areas = {} 
         kl_divergences = {}  
@@ -120,9 +129,9 @@ class Evaluation:
             kl_divergence = entropy(y1, y2) 
             kl_divergences[column] = kl_divergence
 
-            ax.set_title(column)
             ax.set_xlabel(column)
             ax.set_xlim(0, 1)
+            ax.set_ylim(0, 3.5)
             ax.legend()
 
         plt.tight_layout()
@@ -153,33 +162,31 @@ class Evaluation:
             mean_and_std = self.mean_and_std()
             return {'duplicate_percentage': duplicate_percentage, 'mean_and_std': mean_and_std}
 
-
     def plot_heat_maps(self, annot=False) -> plt:
-            """
-            Plots heat maps for the correlation matrices of the original and synthetic minority data.
+        """
+        Plots heat maps for the correlation matrices of the original and synthetic minority data.
 
-            Parameters:
-                annot (bool): Whether to annotate the heat maps with the correlation values. Default is False.
+        Parameters:
+            annot (bool): Whether to annotate the heat maps with the correlation values. Default is False.
 
-            Returns:
-                plt: The matplotlib.pyplot object containing the heat maps.
-            """
-            df1 = self.original_minority_data.copy()
-            df2 = self.synthetic_minority_data.copy() 
+        Returns:
+            plt: The matplotlib.pyplot object containing the heat maps.
+        """
+        df1 = self.original_minority_data.copy()
+        df2 = self.synthetic_minority_data.copy() 
 
-            df1.drop(columns=['synthetic_data', 'class'], inplace=True)
-            df2.drop(columns=['synthetic_data', 'class'], inplace=True)
-            
-            _ , axes = plt.subplots(1, 2, figsize=(18, 10))
-            sns.heatmap(df1.corr(), annot=annot, cmap='viridis', ax=axes[0])
-            axes[0].set_title('Original')
-
-            sns.heatmap(df2.corr(), annot=annot, cmap='viridis', ax=axes[1])
-            axes[1].set_title('Synthetic')
-            plt.tight_layout()
-            return plt
-
+        df1.drop(columns=['synthetic_data', 'class'], inplace=True)
+        df2.drop(columns=['synthetic_data', 'class'], inplace=True)
         
+        _ , axes = plt.subplots(1, 2, figsize=(10, 10))
+        sns.heatmap(df1.corr(), annot=annot, cmap='viridis', ax=axes[0], cbar=False, square=True)
+        axes[0].set_title('Original')
+
+        sns.heatmap(df2.corr(), annot=annot, cmap='viridis', ax=axes[1], cbar=False, square=True)
+        axes[1].set_title('Synthetic')
+        plt.tight_layout()
+        return plt
+
 class GretelEvaluation(Evaluation):
     def __init__(self, dataframe: pd.DataFrame, minority_column_label: str, minority_class_label: str, gretel_api_key:str):
         super().__init__(dataframe, minority_column_label, minority_class_label)
