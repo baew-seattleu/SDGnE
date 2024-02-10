@@ -8,7 +8,7 @@
 - Current dittto uses <i>Autoencoders</i> and <i>SMOTE</i> to generate synthetic data.
 
 ## Getting Started
-`pip install SDGNE`
+`pip install sdgne`
  
  ## Notebooks
  To get started, we have created notebook for the Autoencoder and SMOTE algorithm.
