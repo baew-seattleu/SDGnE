@@ -14,7 +14,7 @@ URL = "https://github.com/SartajBhuvaji"
 
 # Setting up
 setup(
-    name="sdgne",
+    name="SDGNE",
     version=VERSION,
     author="Sartaj Bhuvaji",
     author_email="s.bhuvaj@gmail.com",
