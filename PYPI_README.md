@@ -5,7 +5,7 @@
 ## About
 - SDGnE (Synthetic Data Generation and Evaluation) is a Python package designed to generate synthetic data and evaluate its quality using neural network models. 
 - This tool is intended for developers and researchers who require synthetic datasets for testing and development.
-- The current dittto version `v1.0.0` uses <i>Autoencoders</i> and <i>SMOTE</i> to generate synthetic data.
+- Current dittto uses <i>Autoencoders</i> and <i>SMOTE</i> to generate synthetic data.
 
 ## Getting Started
 `pip install SDGNE`
