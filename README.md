@@ -11,9 +11,7 @@
     Seattle University: Data Science Research
     <br />
     <br />
-    Guide    <br /> 
-    <a href="https://github.com/baew-seattleu">Dr. Wan Bae</a> <br /><br />
-    Students
+    <a href="https://github.com/baew-seattleu">Wan Bae</a>
     <br /> 
     <a href="https://github.com/SartajBhuvaji">Sartaj Bhuvaji</a><br>
     <a href="https://github.com/Siddheshwari19">Siddheshwari Bankar</a> 
@@ -33,7 +31,7 @@
 - Current dittto version uses <i>Autoencoders</i> and <i>SMOTE</i> to generate synthetic data.
 
 ## Getting Started
-`pip install SDGNE`
+`pip install sdgne`
  
  ## Notebooks
  To get started, we have created notebook for the Autoencoder and SMOTE algorithm.
